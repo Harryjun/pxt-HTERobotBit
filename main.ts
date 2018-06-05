@@ -141,7 +141,7 @@ namespace HTERobot{
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
     export function ServoAccurate(index: Servos, DegreeAcurrate: number): void {
         if (!initialized) {
-            initPCA9685()
+            initPCA9685()  
         }
         // 50hz: 20,000 us
         let v_us = (DegreeAcurrate + 600) // 0.6 ~ 2.4
