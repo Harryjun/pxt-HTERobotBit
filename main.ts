@@ -1,7 +1,7 @@
 
 
 
-//% color="#31C7D5" weight=10 icon="9"
+//% color="#31C7D5" weight=10 icon="\uf0c2"
 namespace HTERobot{
 
     const PCA9685_ADDRESS = 0x40
@@ -120,7 +120,7 @@ namespace HTERobot{
 	 * @param index Servo Channel; eg: S1
 	 * @param degree [0-180] degree of servo; eg: 0, 90, 180
 	*/
-    //% blockId=robotbit_servo block="Servo|%index|degree %degree"
+    //% blockId=HTERobot_servo block="Servo|%index|degree %degree"
     //% weight=100
     //% blockGap=50
     //% degree.min=0 degree.max=180
@@ -135,7 +135,10 @@ namespace HTERobot{
         setPwm(index + 7, 0, value)
     }
 
-    //% blockId=robotbit_motor_run block="Motor|%index|speed %speed"
+    /**
+     * Motor Run
+     */
+    //% blockId=HTERobot_motor_run block="Motor|%index|speed %speed"
     //% weight=85
     //% speed.min=-255 speed.max=255
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
@@ -163,7 +166,11 @@ namespace HTERobot{
         }
     }
 
-    //% blockId=robotbit_motor_rundelay block="Motor|%index|speed %speed|delay %delay|s"
+    /**
+     * Motor Run With a delay
+     * 
+     */
+    //% blockId=HTERobot_motor_rundelay block="Motor|%index|speed %speed|delay %delay|s"
     //% weight=81
     //% speed.min=-255 speed.max=255
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
@@ -173,20 +180,13 @@ namespace HTERobot{
         MotorRun(index, 0);
     }
 
-    
-    //% blockId=robotbit_stop block="Motor Stop|%index|"
+    /**
+     * Motor Stop
+     */
+    //% blockId=HTERobot_stop block="Motor Stop|%index|"
     //% weight=80
     export function MotorStop(index: Motors): void {
         MotorRun(index, 0);
-    }
-
-    //% blockId=robotbit_stop_all block="Motor Stop All"
-    //% weight=79
-    //% blockGap=50
-    export function MotorStopAll(): void {
-        for (let idx = 1; idx <= 2; idx++) {
-            stopMotor(idx);
-        }
     }
 
 
