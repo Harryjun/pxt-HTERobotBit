@@ -118,34 +118,33 @@ namespace HTERobot{
     /**
 	 * Servo Execute
 	 * @param index Servo Channel; eg: S1
-	 * @param degree [0-180] degree of servo; eg: 0, 90, 180
+	 * @param Degree [0-180] Degree of servo; eg: 0, 90, 180
 	*/
-    //% blockId=HTERobot_servo block="Servo|%index|degree %degree"
+    //% blockId=HTERobot_servo block="Servo|%index|Degree %Degree"
     //% weight=100
-    //% blockGap=50
-    //% degree.min=0 degree.max=180
+    //% Degree.min=0 Degree.max=180
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
-    export function Servo(index: Servos, degree: number): void {
+    export function Servo(index: Servos, Degree: number): void {
         if (!initialized) {
             initPCA9685()
         }
         // 50hz: 20,000 us
-        let v_us = (degree * 1800 / 180 + 600) // 0.6 ~ 2.4
+        let v_us = (Degree * 1800 / 180 + 600) // 0.6 ~ 2.4
         let value = v_us * 4096 / 20000
         setPwm(index + 7, 0, value)
     }
 
-    //% blockId=HTERobot_servoAccurate block="Servo|%index|degree %degree"
+    //% blockId=HTERobot_servoAccurate block="Servo|%index|Degree %DegreeAcurrate"
     //% weight=100
     //% blockGap=50
-    //% degree.min=0 degree.max=1800
+    //% DegreeAcurrate.min=0 DegreeAcurrate.max=1800
     //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
-    export function ServoAccurate(index: Servos, degree: number): void {
+    export function ServoAccurate(index: Servos, DegreeAcurrate: number): void {
         if (!initialized) {
             initPCA9685()
         }
         // 50hz: 20,000 us
-        let v_us = (degree + 600) // 0.6 ~ 2.4
+        let v_us = (DegreeAcurrate + 600) // 0.6 ~ 2.4
         let value = v_us * 4096 / 20000
         setPwm(index + 7, 0, value)
     }
