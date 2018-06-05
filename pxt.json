@@ -1,16 +1,15 @@
 {
-    "name": "robotbit",
+    "name": "HteRobotBit",
     "version": "0.1.1",
     "description": "Extension for HteRobotBit",
     "license": "MIT",
     "dependencies": {
-        "core": "*",
-        "neopixel": "github:microsoft/pxt-neopixel#v0.6.2"
+        "core": "*"
+        
     },
     "files": [
         "README.md",
-        "main.ts",
-        "_locales/zh/robotbit-strings.json"
+        "main.ts"
     ],
     "testFiles": [
         "test.ts"
