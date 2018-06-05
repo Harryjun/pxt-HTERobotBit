@@ -1,7 +1,7 @@
 
 
 
-//% color="#31C7D5" weight=10 icon="\uf0c2"
+//% color="#50A820" weight=10 icon="\uf0c2"
 namespace HTERobot{
 
     const PCA9685_ADDRESS = 0x40
@@ -19,7 +19,7 @@ namespace HTERobot{
     const ALL_LED_ON_H = 0xFB
     const ALL_LED_OFF_L = 0xFC
     const ALL_LED_OFF_H = 0xFD
-
+     
     const STP_CHA_L = 2047
     const STP_CHA_H = 4095
 
@@ -134,6 +134,23 @@ namespace HTERobot{
         let value = v_us * 4096 / 20000
         setPwm(index + 7, 0, value)
     }
+
+    //% blockId=HTERobot_servoAccurate block="Servo|%index|degree %degree"
+    //% weight=100
+    //% blockGap=50
+    //% degree.min=0 degree.max=1800
+    //% name.fieldEditor="gridpicker" name.fieldOptions.columns=4
+    export function ServoAccurate(index: Servos, degree: number): void {
+        if (!initialized) {
+            initPCA9685()
+        }
+        // 50hz: 20,000 us
+        let v_us = (degree + 600) // 0.6 ~ 2.4
+        let value = v_us * 4096 / 20000
+        setPwm(index + 7, 0, value)
+    }
+    
+
 
     /**
      * Motor Run
