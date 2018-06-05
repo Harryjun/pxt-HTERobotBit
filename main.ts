@@ -134,7 +134,7 @@ namespace HTERobot{
         setPwm(index + 7, 0, value)
     }
 
-    //% blockId=HTERobot_servoAccurate block="Servo|%index|Degree %DegreeAcurrate"
+    //% blockId=HTERobot_servoAccurate block="Servo|%index|DegreeAcurrate %DegreeAcurrate"
     //% weight=100
     //% blockGap=50
     //% DegreeAcurrate.min=0 DegreeAcurrate.max=1800
